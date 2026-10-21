@@ -2,6 +2,8 @@
 
 A production-grade RESTful API backend application built with **Node.js**, **Express.js**, and **MongoDB (Mongoose)** for managing users with full CRUD (Create, Read, Update, Delete) capabilities.
 
+🌐 **Live API Base URL:** [https://crud-operations-using-rest-api.onrender.com](https://crud-operations-using-rest-api.onrender.com)
+
 ---
 
 ## 📌 Project Overview
