@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [true, 'Password is required'],
       minlength: [6, 'Password must be at least 6 characters long'],
-      select: false, // Ensures password hash is never exposed by default in queries
+      select: false,
     },
     createdAt: {
       type: Date,
@@ -33,20 +33,19 @@ const userSchema = new mongoose.Schema(
     },
   },
   {
-    timestamps: false, // Using explicit createdAt as requested
+    timestamps: false,
     toJSON: {
       transform: function (doc, ret) {
         ret.id = ret._id;
         delete ret._id;
         delete ret.__v;
-        delete ret.password; // Never expose password in responses
+        delete ret.password;
         return ret;
       },
     },
   }
 );
 
-// Pre-save hook to hash password before saving to database
 userSchema.pre('save', async function () {
   if (!this.isModified('password')) {
     return;
